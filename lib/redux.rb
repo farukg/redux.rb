@@ -6,6 +6,7 @@ module Redux
     ->(state = {}, action){
       reducers.reduce({}){ |next_state, (key, reducer)|
         next_state[key] = reducer.call(state[key], action)
+        next_state
       }
     }
   end
